@@ -1,0 +1,34 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+*.d
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+#*.dylib
+#*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.lib
+
+# Executables
+#*.exe
+*.out
+*.app
+
+*.DS_Store
+
+/.idea/
+/cmake-build-debug/
+/cmake-build-release/
