@@ -18,7 +18,7 @@ do{\
         assert(buf);\
         if(buf->_len + 1 < buf->_capacity){\
             buf->_data[buf->_len] = ch;\
-            buf->_len += 1;\
+            ++buf->_len;\
             buf->_data[buf->_len] = '\0';\
         }else{\
             char tmp = ch;\
