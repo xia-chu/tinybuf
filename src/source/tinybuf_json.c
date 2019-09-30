@@ -404,6 +404,44 @@ static inline int tinybuf_json_skip_for(const char *ptr, int size,const char *st
     return 0;
 }
 
+static char s_flags[0xFF] = {0};
+static char s_flags_ok = 0;
+
+static inline int tinybuf_json_skip_for_complex(const char *ptr, int size,const char *str,int show_waring){
+    if(!s_flags_ok){
+        const char *str_ptr = str;
+        while(*str_ptr){
+            s_flags[*(str_ptr++)] = 1;
+        }
+        s_flags_ok = 1;
+    }
+
+
+    int i;
+    for(i = 0 ; i < size ; ++i){
+        uint8_t ch = ((uint8_t *)ptr)[i];
+
+        if(is_blank(ch)){
+            //空白忽略之
+            continue;
+        }
+
+        if(s_flags[ch]){
+            //消耗了这么多字节
+            return i + 1;
+        }
+
+        if(show_waring){
+            LOGW("搜索%s时发现非法字符:%c",str,ch);
+        }
+        //非法字符
+        return -1;
+    }
+
+    //全部都是空白,未找到
+    return 0;
+}
+
 /**
  * 解析Unicode字符
  * @param start json字符串
@@ -679,7 +717,7 @@ static inline int tinybuf_json_load_for_null(const char *ptr, int size){
  */
 static inline int tinybuf_json_load_for_value_type(const char *ptr, int size, tinybuf_type *type,int show_waring){
     //搜索map/array/number/string/bool/null
-    int consumed = tinybuf_json_skip_for(ptr,size,"{[-0123456789\"ftn",show_waring);
+    int consumed = tinybuf_json_skip_for_complex(ptr,size,"{[-0123456789\"ftn",show_waring);
     if(consumed <= 0){
         //未找到或出现非法字符
         return consumed;
