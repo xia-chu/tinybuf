@@ -977,19 +977,11 @@ static inline int tinybuf_json_load_for_number(const char *ptr, int size, tinybu
     }
 
     //这是double
-    if(size >  p - ptr){
-        //末尾还有字节
-        char tmp = *p;
-        *p = '\0';
-        tinybuf_value_init_double(number, atof(ptr));
-        *p = tmp;
-    }else{
-        //确保最后一个字节为'\0'
-        buffer *buf = buffer_alloc();
-        buffer_assign(buf,ptr,p - ptr);
-        tinybuf_value_init_double(number, atof(buffer_get_data_inline(buf)));
-        buffer_free(buf);
-    }
+    //确保最后一个字节为'\0'
+    buffer *buf = buffer_alloc();
+    buffer_assign(buf,ptr,p - ptr);
+    tinybuf_value_init_double(number, atof(buffer_get_data_inline(buf)));
+    buffer_free(buf);
     return p - ptr;
 }
 
