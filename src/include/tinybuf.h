@@ -18,7 +18,7 @@ typedef enum {
 } tinybuf_type;
 
 
-typedef struct tinybuf_value tinybuf_value;
+typedef struct T_tinybuf_value tinybuf_value;
 
 /**
  * 创建对象

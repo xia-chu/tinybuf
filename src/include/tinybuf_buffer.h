@@ -5,7 +5,7 @@
 extern "C" {
 #endif // __cplusplus
 
-typedef struct buffer buffer;
+typedef struct T_buffer buffer;
 
 /**
  * 在堆上申请开辟buffer对象并且初始化

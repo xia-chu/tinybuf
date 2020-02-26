@@ -911,7 +911,8 @@ static inline int tinybuf_json_load_for_array(const char *ptr, int size, tinybuf
 int scanf_int(const char *str,int str_len,int64_t *out){
     int is_negtive = 0;
     *out = 0;
-    for(int i = 0; i < str_len; ++i){
+    int i;
+    for(i = 0; i < str_len; ++i){
         if(i == 0 && str[i] == '-'){
             is_negtive = 1;
             continue;

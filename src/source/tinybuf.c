@@ -21,7 +21,8 @@ typedef enum {
  */
 static inline int int_serialize(uint64_t in, uint8_t *out){
     int index = 0;
-    for(int i = 0; i <= (8 * sizeof(in)) / 7 ; ++i, ++index){
+    int i;
+    for(i = 0; i <= (8 * sizeof(in)) / 7 ; ++i, ++index){
         //取最低位7bit
         out[index] = in & 0x7F;
         //右移7位

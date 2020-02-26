@@ -1,11 +1,11 @@
 #ifndef TINYBUF_BUFFER_PRIVATE_H
 #define TINYBUF_BUFFER_PRIVATE_H
 
-typedef struct buffer{
+struct T_buffer{
     char *_data;
     int _len;
     int _capacity;
-} buffer;
+};
 
 #define inline_optimization 1
 
