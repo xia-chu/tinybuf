@@ -46,7 +46,7 @@ void set_log_level(e_log_lev lev);
  * 获取日志等级
  * @return 日志等级
  */
-e_log_lev get_log_level();
+e_log_lev get_log_level(void);
 
 /**
  * printf回调函数
@@ -63,7 +63,7 @@ void set_printf_ptr(printf_ptr cb);
  * 获取printf函数
  * @return
  */
-printf_ptr get_printf_ptr();
+printf_ptr get_printf_ptr(void);
 
 
 #ifndef ANDROID

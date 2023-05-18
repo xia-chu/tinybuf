@@ -12,7 +12,7 @@ typedef struct T_buffer buffer;
  * 内部会调用buffer_init函数
  * @return buffer对象
  */
-buffer *buffer_alloc();
+buffer *buffer_alloc(void);
 buffer *buffer_alloc2(const char *str,int len);
 
 /**

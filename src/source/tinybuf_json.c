@@ -908,7 +908,7 @@ static inline int tinybuf_json_load_for_array(const char *ptr, int size, tinybuf
     }
 }
 
-int scanf_int(const char *str,int str_len,int64_t *out){
+static int scanf_int(const char *str,int str_len,int64_t *out){
     int is_negtive = 0;
     *out = 0;
     int i;

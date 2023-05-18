@@ -72,7 +72,7 @@ static inline int int_deserialize(const uint8_t *in, int in_size, uint64_t *out)
     return index;
 }
 
-tinybuf_value *tinybuf_value_alloc(){
+tinybuf_value *tinybuf_value_alloc(void){
     tinybuf_value *ret = tinybuf_malloc(sizeof(tinybuf_value));
     assert(ret);
     //置0

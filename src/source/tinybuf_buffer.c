@@ -32,7 +32,7 @@ static inline int buffer_release(buffer *buf){
     return 0;
 }
 
-buffer *buffer_alloc(){
+buffer *buffer_alloc(void){
     buffer *ret = (buffer *) tinybuf_malloc(sizeof(buffer));
     assert(ret);
     memset(ret,0, sizeof(buffer));;
@@ -161,7 +161,7 @@ int buffer_move(buffer *dst,buffer *src){
     return 0;
 }
 
-int buffer_length(buffer *buf){
+static int buffer_length(buffer *buf){
     if(!buf){
         return 0;
     }

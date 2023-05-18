@@ -23,7 +23,7 @@ const char *LOG_CONST_TABLE[][3] = {
 android_LogPriority LogPriorityArr[] = {ANDROID_LOG_VERBOSE,ANDROID_LOG_DEBUG,ANDROID_LOG_INFO,ANDROID_LOG_WARN,ANDROID_LOG_ERROR};
 #endif
 
-void print_time(const struct timeval *tv,char *buf,int buf_size) {
+static void print_time(const struct timeval *tv,char *buf,int buf_size) {
     time_t sec_tmp = tv->tv_sec;
     struct tm *tm = localtime(&sec_tmp);
     snprintf(buf,

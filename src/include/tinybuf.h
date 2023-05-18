@@ -24,7 +24,7 @@ typedef struct T_tinybuf_value tinybuf_value;
  * 创建对象
  * @return 返回对象
  */
-tinybuf_value *tinybuf_value_alloc();
+tinybuf_value *tinybuf_value_alloc(void);
 
 
 /**
